@@ -66,6 +66,8 @@ export class FormComponent {
   }
 
   onSubmit({ value, valid }) {
+    //Replace more than one spaces with empty string. \s{2,} regex is used
+    this.postForm.controls['message'].value = this.postForm.controls['message'].value.replace(/\s{2,}/gm,'');
     if (!valid) {
       return
     }
